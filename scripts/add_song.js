@@ -16,14 +16,19 @@ async function addSong() {
       ? document.querySelector("#genre").value.split(",")
       : [],
   };
-
-  const response = await fetch("http://localhost:3000/api/songs", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  // Render fetch const response. Uncomment for live.
+  const response = await fetch(
+    "https://sdev200-module05-backend.onrender.com/api/songs",
+    {
+      // Local fetch const response. Uncomment for testing.
+      // const response = await fetch("http://localhost:3000/api/songs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(song),
     },
-    body: JSON.stringify(song),
-  });
+  );
 
   if (response.ok) {
     const results = await response.json();

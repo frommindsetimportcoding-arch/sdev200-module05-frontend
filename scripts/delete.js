@@ -6,9 +6,15 @@ export async function deleteSong(songId) {
 
   try {
     // Pass the id into the URL
-    const response = await fetch(`http://localhost:3000/api/songs/${songId}`, {
-      method: "DELETE",
-    });
+    // Live render fetch const response below. Uncomment to run live.
+    const response = await fetch(
+      `https://sdev200-module05-backend.onrender.com/api/songs/${songId}`,
+      {
+        // Local test fetch uncomment below.
+        // const response = await fetch(`http://localhost:3000/api/songs/${songId}`, {
+        method: "DELETE",
+      },
+    );
 
     if (response.ok) {
       alert("Song deleted successfully");

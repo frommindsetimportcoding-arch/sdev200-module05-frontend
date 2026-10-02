@@ -2,7 +2,10 @@ addEventListener("DOMContentLoaded", async function () {
   document.querySelector("#updateBtn").addEventListener("click", updateSong);
   const urlparam = new URLSearchParams(window.location.search);
   const songID = urlparam.get("id");
-  const response = await fetch("http://localhost:3000/api/songs/" + songID);
+  //const response = await fetch("http://localhost:3000/api/songs/" + songID);
+  const response = await fetch(
+    "https://sdev200-module05-backend.onrender.com/api/songs/" + songID,
+  );
   console.log(response);
   if (response.ok) {
     let song = await response.json();
@@ -32,13 +35,19 @@ async function updateSong() {
       ? document.querySelector("#genre").value.split(",")
       : [],
   };
-  const response = await fetch("http://localhost:3000/api/songs/" + songID, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
+  // Live backend URL uncomment below ...
+  const response = await fetch(
+    "https://sdev200-module05-backend.onrender.com/api/songs/" + songID,
+    {
+      // local testing uncomment below...
+      //const response = await fetch("http://localhost:3000/api/songs/" + songID, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(song),
     },
-    body: JSON.stringify(song),
-  });
+  );
   if (response.ok) {
     alert("Updated Song");
   } else {
