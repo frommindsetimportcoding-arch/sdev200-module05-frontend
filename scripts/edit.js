@@ -2,7 +2,7 @@ addEventListener("DOMContentLoaded", async function () {
   document.querySelector("#updateBtn").addEventListener("click", updateSong);
   const urlparam = new URLSearchParams(window.location.search);
   const songID = urlparam.get("id");
-  //const response = await fetch("http://localhost:3000/api/songs/" + songID);
+  // const response = await fetch("http://localhost:3000/api/songs/" + songID);
   const response = await fetch(
     "https://sdev200-module05-backend.onrender.com/api/songs/" + songID,
   );
