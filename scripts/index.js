@@ -20,7 +20,7 @@ window.onload = function () {
     loginBtn.innerText = "Login";
 
     loginBtn.addEventListener("click", () => {
-      window.location.href = "/login.html";
+      window.location.href = "./login.html";
     });
 
     buttonSelector.appendChild(loginBtn);
