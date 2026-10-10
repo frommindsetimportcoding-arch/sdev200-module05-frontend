@@ -20,7 +20,8 @@ window.onload = function () {
     loginBtn.innerText = "Login";
 
     loginBtn.addEventListener("click", () => {
-      window.location.href = "./login.html";
+      const repoPath = window.location.pathname.split("/")[1];
+      window.location.href = `${window.location.origin}/${repoPath}/login.html`;
     });
 
     buttonSelector.appendChild(loginBtn);

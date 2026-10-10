@@ -17,6 +17,7 @@ class Auth {
     localStorage.removeItem("token");
     localStorage.removeItem("uname");
 
-    window.location.replace("./login.html");
+    const repoPath = window.location.pathname.split("/")[1];
+    window.location.replace(`${window.location.origin}/${repoPath}/login.html`);
   }
 }

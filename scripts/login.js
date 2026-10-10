@@ -46,7 +46,8 @@ async function login(username, password) {
     localStorage.setItem("auth", auth);
 
     // redirect
-    window.location.replace("./index.html");
+    const repoPath = window.location.pathname.split("/")[1];
+    window.location.replace(`${window.location.origin}/${repoPath}/index.html`);
   } else {
     document.querySelector("#errorMsg").innerHTML =
       "Bad username and password.";
